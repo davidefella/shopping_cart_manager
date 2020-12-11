@@ -2,7 +2,7 @@ package shopping.cart.model;
 
 import java.util.List;
 
-public class Result {
+public class CartResult {
     String idShoppingCart;
     List<Product> products;
     double totalTaxes;

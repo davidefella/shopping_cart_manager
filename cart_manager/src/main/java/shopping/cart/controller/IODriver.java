@@ -11,7 +11,7 @@ import shopping.cart.model.Product;
 import shopping.cart.model.ShoppingCart;
 
 @RestController
-public class RestInputHandler {
+public class IODriver {
   
     @RequestMapping(value = "/buy_goods", method = RequestMethod.POST)
     public ResponseEntity<ShoppingCart> buyGoods(@RequestBody ShoppingCart shoppingCart) {

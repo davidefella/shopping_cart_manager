@@ -6,6 +6,14 @@ public class Product{
     int quantity; 
     double price;
 
+    public Product(){}
+
+    public Product(String name, int quantity, double price){
+        this.name = name;
+        this.quantity = quantity; 
+        this.price = price;
+    }
+
     public String getName() {
         return name;
     }

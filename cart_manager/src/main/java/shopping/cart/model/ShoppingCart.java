@@ -1,4 +1,4 @@
-package shopping.cart.manager.model;
+package shopping.cart.model;
 
 import java.util.List;
 

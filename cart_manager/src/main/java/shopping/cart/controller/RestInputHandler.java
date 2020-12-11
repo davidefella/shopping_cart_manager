@@ -1,7 +1,4 @@
-package shopping.cart.manager.controller;
-
-import java.util.ArrayList;
-import java.util.List;
+package shopping.cart.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import shopping.cart.manager.model.Product;
-import shopping.cart.manager.model.ShoppingCart;
+import shopping.cart.model.Product;
+import shopping.cart.model.ShoppingCart;
 
 @RestController
 public class RestInputHandler {

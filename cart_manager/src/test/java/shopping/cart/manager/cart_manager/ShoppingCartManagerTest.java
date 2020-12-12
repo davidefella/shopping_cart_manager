@@ -1,6 +1,7 @@
 package shopping.cart.manager.cart_manager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -42,6 +43,9 @@ class ShoppingCartManagerTest {
         assertTrue(searchForName(cartResult.getProducts(), "pen"));
         assertTrue(searchForName(cartResult.getProducts(), "t-shirts"));
         assertEquals(3, cartResult.getProducts().size());
+        assertEquals(9.50, cartResult.getTotalTaxes());
+        assertEquals(60.85, cartResult.getTotalAmount());
+
     }
 
 
@@ -49,6 +53,7 @@ class ShoppingCartManagerTest {
     public void BuyGoods_CartExample2_Return() throws Exception {
         //arrange
         ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setCodeCoupon("GIFT5");
         List<Product> products = new ArrayList<>(); 
         shoppingCart.setGoods(products);
         Product p1 = new Product("cokes", 2, 2.30); 
@@ -66,6 +71,8 @@ class ShoppingCartManagerTest {
         assertTrue(searchForName(cartResult.getProducts(), "knitwear"));
         assertTrue(searchForName(cartResult.getProducts(), "books"));
         assertEquals(3, cartResult.getProducts().size());
+        assertEquals(11.14, cartResult.getTotalTaxes());
+        assertEquals(85.76, cartResult.getTotalAmount());
     } 
 
    
@@ -73,6 +80,7 @@ class ShoppingCartManagerTest {
     public void BuyGoods_CartExample3_Return() throws Exception {
         //arrange
         ShoppingCart shoppingCart = new ShoppingCart();
+        shoppingCart.setCodeCoupon("GIFT5");
         List<Product> products = new ArrayList<>(); 
         shoppingCart.setGoods(products);
         Product p1 = new Product("cake", 1, 42.50); 
@@ -92,11 +100,24 @@ class ShoppingCartManagerTest {
         assertTrue(searchForName(cartResult.getProducts(), "book"));
         assertTrue(searchForName(cartResult.getProducts(), "t-shirts"));
         assertEquals(4, cartResult.getProducts().size());
+        assertEquals(12.82, cartResult.getTotalTaxes());
+        assertEquals(121.14, cartResult.getTotalAmount());
+    }
+
+    @Test
+    public void BuyGoods_CartExampleEmpy_Return() throws Exception {
+        //arrange
+        ShoppingCart shoppingCart = new ShoppingCart();
+        
+        //act 
+        CartResult cartResult = shoppingCartManager.buyGoods(shoppingCart);
+
+        //result
+        assertNotNull(cartResult);
     }
 
 
     /** Auxiliary Methods */
-
     private boolean searchForName(List<Product> products, String name2search){
         boolean isNamePresent = false; 
 

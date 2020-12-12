@@ -29,6 +29,10 @@ public class TaxesCalculator {
     public CartResult computeTaxes(ShoppingCart shoppingCart, CartResult cartResult) {
 
         List<Product> products = shoppingCart.getGoods();
+
+        if( shoppingCart.getGoods() == null || shoppingCart.getGoods().isEmpty())
+            return new CartResult(); 
+
         List<Product> productsResult = new ArrayList<>();
         double totalTaxes = 0.0;
 
@@ -44,8 +48,8 @@ public class TaxesCalculator {
 
         cartResult.setIdShoppingCart("Shopping Cart nr. 4");
         cartResult.setProducts(productsResult);
-        cartResult.setTotalTaxes(totalTaxes);
-        cartResult.setTotalAmount(cartResult.getTotalAmount() + totalTaxes);
+        cartResult.setTotalTaxes(rounderDecimal.formatDecimals(totalTaxes));
+        cartResult.setTotalAmount(rounderDecimal.formatDecimals(cartResult.getTotalAmount() + totalTaxes));
 
         return cartResult;
     }
@@ -71,8 +75,8 @@ public class TaxesCalculator {
         Coupon coupon = couponManager.getcoupon(codeCoupon, inputProduct.getName()); 
         
         if(coupon != null) {
-            double discountRate = coupon.getPercentage()/100; 
-            priceUpdated = rounderDecimal.formatDecimals(inputProduct.getPrice() * ( 0.1 - discountRate ) );
+            double discountRate = coupon.getPercentage()/100.00; 
+            priceUpdated = rounderDecimal.formatDecimals(inputProduct.getPrice() * ( 1 - discountRate ) );
         }
 
         productResult.setPrice(priceUpdated);

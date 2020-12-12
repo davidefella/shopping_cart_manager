@@ -4,4 +4,5 @@ public interface Category {
 
     public int getPercentage(); 
 
+    public String getCategory(); 
 }

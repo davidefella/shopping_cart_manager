@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import shopping.cart.ProductsUtils.CouponManager;
+import shopping.cart.ProductsUtils.ProductCategoryDetector;
+import shopping.cart.ProductsUtils.RounderDecimal;
 import shopping.cart.model.CartResult;
 import shopping.cart.model.Product;
 import shopping.cart.model.ShoppingCart;
+import shopping.cart.model.coupon_category.Coupon;
 import shopping.cart.model.product_category.Category;
-import shopping.cart.utils.ProductCategoryDetector;
-import shopping.cart.utils.RounderDecimal;
 
 @Service
 public class TaxesCalculator {
@@ -20,18 +23,23 @@ public class TaxesCalculator {
     @Autowired
     RounderDecimal rounderDecimal;
 
+    @Autowired
+    CouponManager couponManager; 
+
     public CartResult computeTaxes(ShoppingCart shoppingCart, CartResult cartResult) {
 
         List<Product> products = shoppingCart.getGoods();
         List<Product> productsResult = new ArrayList<>();
         double totalTaxes = 0.0;
 
+        Product productResult; 
         for (Product p : products) {
-            productsResult.add(new Product(p.getName(), p.getQuantity(), p.getPrice() * p.getQuantity()));
 
-            totalTaxes = totalTaxes + this.calculateTax(p);
+            productResult = createProductReturn(p, shoppingCart.getCodeCoupon());
 
-            cartResult.setTotalAmount(cartResult.getTotalAmount() + (p.getPrice() * p.getQuantity()));
+            productsResult.add(new Product(productResult.getName(), productResult.getQuantity(), productResult.getPrice() * productResult.getQuantity()));
+            cartResult.setTotalAmount( cartResult.getTotalAmount() + (productResult.getPrice() * productResult.getQuantity()));
+            totalTaxes = totalTaxes + this.calculateTax(productResult);
         }
 
         cartResult.setIdShoppingCart("Shopping Cart nr. 4");
@@ -42,7 +50,7 @@ public class TaxesCalculator {
         return cartResult;
     }
 
-    //note: is public for testing purpose
+    // note: is public for testing purpose
     public double calculateTax(Product product) {
 
         Category productCategory = productCategoryDetector.detectCategoryFrom(product.getName());
@@ -51,4 +59,25 @@ public class TaxesCalculator {
 
         return rounderDecimal.formatDecimals(totalTaxesProduct);
     }
+
+    private Product createProductReturn(Product inputProduct, String codeCoupon) {
+        Product productResult = new Product();
+        double priceUpdated = inputProduct.getPrice(); 
+
+        productResult.setName(inputProduct.getName());
+        productResult.setQuantity(inputProduct.getQuantity());
+
+
+        Coupon coupon = couponManager.getcoupon(codeCoupon, inputProduct.getName()); 
+        
+        if(coupon != null) {
+            double discountRate = coupon.getPercentage()/100; 
+            priceUpdated = rounderDecimal.formatDecimals(inputProduct.getPrice() * ( 0.1 - discountRate ) );
+        }
+
+        productResult.setPrice(priceUpdated);
+
+        return productResult;
+    }
+    
 }

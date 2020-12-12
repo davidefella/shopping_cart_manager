@@ -1,7 +1,6 @@
-package shopping.cart.utils;
+package shopping.cart.ProductsUtils;
 
 import org.springframework.stereotype.Service;
-
 import shopping.cart.model.product_category.Basic;
 import shopping.cart.model.product_category.Book;
 import shopping.cart.model.product_category.Category;

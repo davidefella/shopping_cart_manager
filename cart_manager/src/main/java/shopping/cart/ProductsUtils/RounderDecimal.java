@@ -1,4 +1,4 @@
-package shopping.cart.utils;
+package shopping.cart.ProductsUtils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

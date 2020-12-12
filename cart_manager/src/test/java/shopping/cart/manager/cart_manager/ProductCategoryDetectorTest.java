@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import shopping.cart.ProductsUtils.ProductCategoryDetector;
 import shopping.cart.model.product_category.Basic;
 import shopping.cart.model.product_category.Book;
 import shopping.cart.model.product_category.Category;
 import shopping.cart.model.product_category.FoodBeverage;
-import shopping.cart.utils.ProductCategoryDetector;
 
 @SpringBootTest
 public class ProductCategoryDetectorTest {

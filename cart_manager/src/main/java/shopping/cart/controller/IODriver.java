@@ -1,5 +1,6 @@
 package shopping.cart.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,11 +14,12 @@ import shopping.cart.model.ShoppingCart;
 
 @RestController
 public class IODriver {
-  
+
+    @Autowired
+    ShoppingCartManager shoppingCartManager; 
+
     @RequestMapping(value = "/buy_goods", method = RequestMethod.POST)
     public ResponseEntity<CartResult> buyGoods(@RequestBody ShoppingCart shoppingCart) {
-
-        ShoppingCartManager shoppingCartManager = new ShoppingCartManager();
 
         return new ResponseEntity<>( shoppingCartManager.buyGoods(shoppingCart), HttpStatus.OK);
     }

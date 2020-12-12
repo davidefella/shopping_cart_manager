@@ -42,7 +42,8 @@ public class TaxesCalculator {
         return cartResult;
     }
 
-    private double calculateTax(Product product) {
+    //note: is public for testing purpose
+    public double calculateTax(Product product) {
 
         Category productCategory = productCategoryDetector.detectCategoryFrom(product.getName());
         double totalPrice = product.getQuantity() * product.getPrice();

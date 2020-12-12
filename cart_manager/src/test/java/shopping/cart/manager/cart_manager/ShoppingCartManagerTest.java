@@ -21,7 +21,6 @@ class ShoppingCartManagerTest {
     @Autowired
 	private ShoppingCartManager shoppingCartManager;
 
-
     @Test
     public void BuyGoods_CartExample1_Return() throws Exception {
         //arrange

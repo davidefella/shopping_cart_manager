@@ -11,8 +11,6 @@ public class TaxesCalculator {
     
     public CartResult computeTaxes( ShoppingCart shoppingCart, CartResult cartResult){
 
-
-
         List<Product> products = shoppingCart.getGoods(); 
         List<Product> productsResult = new ArrayList<>(); 
         double totalTaxes = 0.0; 
@@ -28,8 +26,6 @@ public class TaxesCalculator {
             cartResult.setTotalAmount( cartResult.getTotalAmount() + (p.getPrice()*p.getQuantity()) );
         }
        
-        //cartResult.setTotalAmount( cartResult.getTotalAmount() + totalTaxes );
-
         cartResult.setProducts(productsResult);
         cartResult.setTotalTaxes(totalTaxes);
 

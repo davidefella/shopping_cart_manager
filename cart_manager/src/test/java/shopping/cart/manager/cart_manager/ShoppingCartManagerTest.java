@@ -42,7 +42,7 @@ class ShoppingCartManagerTest {
         assertTrue(searchForName(cartResult.getProducts(), "beer"));
         assertTrue(searchForName(cartResult.getProducts(), "pen"));
         assertTrue(searchForName(cartResult.getProducts(), "t-shirts"));
-        assertEquals(cartResult.getProducts().size(), 3);
+        assertEquals(3, cartResult.getProducts().size());
     }
 
 
@@ -66,7 +66,7 @@ class ShoppingCartManagerTest {
         assertTrue(searchForName(cartResult.getProducts(), "cokes"));
         assertTrue(searchForName(cartResult.getProducts(), "knitwear"));
         assertTrue(searchForName(cartResult.getProducts(), "books"));
-        assertEquals(cartResult.getProducts().size(), 3);
+        assertEquals(3, cartResult.getProducts().size());
     } 
 
    
@@ -92,7 +92,7 @@ class ShoppingCartManagerTest {
         assertTrue(searchForName(cartResult.getProducts(), "cake"));
         assertTrue(searchForName(cartResult.getProducts(), "book"));
         assertTrue(searchForName(cartResult.getProducts(), "t-shirts"));
-        assertEquals(cartResult.getProducts().size(), 4);
+        assertEquals(4, cartResult.getProducts().size());
     }
 
 

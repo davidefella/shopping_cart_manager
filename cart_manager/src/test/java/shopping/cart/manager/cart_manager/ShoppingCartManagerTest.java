@@ -16,7 +16,7 @@ import shopping.cart.model.Product;
 import shopping.cart.model.ShoppingCart;
 
 @SpringBootTest
-class CartManagerApplicationTests {
+class ShoppingCartManagerTest {
 
     @Autowired
 	private ShoppingCartManager shoppingCartManager;

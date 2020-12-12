@@ -4,7 +4,7 @@ public class Basic implements Category {
     private final int TAXE_PERCENTAGE = 22;
 
     @Override
-    public int getCategory() {
+    public int getPercentage() {
         
         return TAXE_PERCENTAGE; 
     }

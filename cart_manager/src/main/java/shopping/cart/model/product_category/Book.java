@@ -4,7 +4,7 @@ public class Book implements Category {
     private final int TAXE_PERCENTAGE = 10;
 
     @Override
-    public int getCategory() {
+    public int getPercentage() {
 
         return TAXE_PERCENTAGE;
     }

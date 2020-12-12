@@ -1,10 +1,13 @@
 package shopping.cart.utils;
 
+import org.springframework.stereotype.Service;
+
 import shopping.cart.model.product_category.Basic;
 import shopping.cart.model.product_category.Book;
 import shopping.cart.model.product_category.Category;
 import shopping.cart.model.product_category.FoodBeverage;
 
+@Service
 public class ProductCategoryDetector {
 
     public Category detectCategoryFrom(String nameProduct) {

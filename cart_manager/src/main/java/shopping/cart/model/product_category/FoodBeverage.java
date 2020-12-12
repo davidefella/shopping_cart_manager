@@ -4,7 +4,7 @@ public class FoodBeverage implements Category {
     private final int TAXE_PERCENTAGE = 4;
 
     @Override
-    public int getCategory() {
+    public int getPercentage() {
         return TAXE_PERCENTAGE;
     }
 }

@@ -11,9 +11,7 @@ import shopping.cart.ProductsUtils.RounderDecimal;
 @SpringBootTest
 public class RounderDecimalTest {
     
-    @Autowired
-    private RounderDecimal rounderDecimal;
-    
+      
     @Test
     public void RounderDecimal_DecimalNumber_RoundedDOWN() throws Exception {
         //arrange
@@ -21,7 +19,7 @@ public class RounderDecimalTest {
         String stringNumberRounded; 
 
         //act 
-        stringNumberRounded = String.valueOf( rounderDecimal.formatDecimals(doubleNumberToRound) ); 
+        stringNumberRounded = String.valueOf( RounderDecimal.formatDecimals(doubleNumberToRound) ); 
 
         //assert
         assertEquals("0.12",stringNumberRounded);
@@ -34,7 +32,7 @@ public class RounderDecimalTest {
         String stringNumberRounded; 
 
         //act 
-        stringNumberRounded = String.valueOf( rounderDecimal.formatDecimals(doubleNumberToRound) ); 
+        stringNumberRounded = String.valueOf( RounderDecimal.formatDecimals(doubleNumberToRound) ); 
 
         //assert
         assertEquals("0.13",stringNumberRounded);
@@ -47,7 +45,7 @@ public class RounderDecimalTest {
         String stringNumberRounded; 
 
         //act 
-        stringNumberRounded = String.valueOf( rounderDecimal.formatDecimals(doubleNumberToRound) ); 
+        stringNumberRounded = String.valueOf( RounderDecimal.formatDecimals(doubleNumberToRound) ); 
 
         //assert
         assertEquals("1.0",stringNumberRounded);
@@ -60,7 +58,7 @@ public class RounderDecimalTest {
         String stringNumberRounded; 
 
         //act 
-        stringNumberRounded = String.valueOf( rounderDecimal.formatDecimals(doubleNumberToRound) ); 
+        stringNumberRounded = String.valueOf( RounderDecimal.formatDecimals(doubleNumberToRound) ); 
 
         //assert
         assertEquals("100.0",stringNumberRounded);
@@ -73,7 +71,7 @@ public class RounderDecimalTest {
         String stringNumberRounded; 
 
         //act 
-        stringNumberRounded = String.valueOf( rounderDecimal.formatDecimals(doubleNumberToRound) ); 
+        stringNumberRounded = String.valueOf( RounderDecimal.formatDecimals(doubleNumberToRound) ); 
 
         //assert
         assertEquals("0.0",stringNumberRounded);
@@ -86,7 +84,7 @@ public class RounderDecimalTest {
         String stringNumberRounded; 
 
         //act 
-        stringNumberRounded = String.valueOf( rounderDecimal.formatDecimals(doubleNumberToRound) ); 
+        stringNumberRounded = String.valueOf( RounderDecimal.formatDecimals(doubleNumberToRound) ); 
 
         //assert
         assertEquals("0.01",stringNumberRounded);
@@ -100,7 +98,7 @@ public class RounderDecimalTest {
         String stringNumberRounded; 
 
         //act 
-        stringNumberRounded = String.valueOf( rounderDecimal.formatDecimals(doubleNumberToRound) ); 
+        stringNumberRounded = String.valueOf( RounderDecimal.formatDecimals(doubleNumberToRound) ); 
 
         //assert
         assertEquals("0.0",stringNumberRounded);

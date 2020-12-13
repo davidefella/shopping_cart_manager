@@ -2,8 +2,10 @@ package shopping.cart.model;
 
 import java.util.List;
 
+import shopping.cart.ProductsUtils.RounderDecimal;
+
 public class CartResult {
-    String currency; 
+    String currency;
     String idShoppingCart;
     List<Product> products;
     double totalTaxes;
@@ -26,19 +28,19 @@ public class CartResult {
     }
 
     public double getTotalTaxes() {
-        return totalTaxes;
+        return Double.parseDouble(RounderDecimal.formatDecimals2String(totalTaxes));
     }
 
     public void setTotalTaxes(double totalTaxes) {
-        this.totalTaxes = totalTaxes;
+        this.totalTaxes = Double.parseDouble(RounderDecimal.formatDecimals2String(totalTaxes));
     }
 
     public double getTotalAmount() {
-        return totalAmount;
+        return Double.parseDouble(RounderDecimal.formatDecimals2String(totalAmount));
     }
 
     public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+        this.totalAmount = Double.parseDouble(RounderDecimal.formatDecimals2String(totalAmount));
     }
 
     public String getCurrency() {

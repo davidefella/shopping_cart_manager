@@ -1,16 +1,19 @@
 package shopping.cart.model;
 
-public class Product{
+import shopping.cart.ProductsUtils.RounderDecimal;
 
-    String name; 
-    int quantity; 
+public class Product {
+
+    String name;
+    int quantity;
     double price;
 
-    public Product(){}
+    public Product() {
+    }
 
-    public Product(String name, int quantity, double price){
+    public Product(String name, int quantity, double price) {
         this.name = name;
-        this.quantity = quantity; 
+        this.quantity = quantity;
         this.price = price;
     }
 
@@ -30,11 +33,12 @@ public class Product{
         this.quantity = quantity;
     }
 
+    /* Round decimal every time set Price */
     public double getPrice() {
-        return price;
+        return Double.parseDouble(RounderDecimal.formatDecimals2String(price));
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        this.price = Double.parseDouble(RounderDecimal.formatDecimals2String(price));
     }
 }

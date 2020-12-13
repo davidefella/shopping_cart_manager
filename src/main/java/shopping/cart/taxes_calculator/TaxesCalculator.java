@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import shopping.cart.ProductsUtils.ConstantsString;
 import shopping.cart.ProductsUtils.CouponManager;
 import shopping.cart.ProductsUtils.ProductCategoryFactory;
 import shopping.cart.ProductsUtils.RounderDecimal;
@@ -47,7 +48,8 @@ public class TaxesCalculator {
         cartResult.setProducts(productsResult);
         cartResult.setTotalTaxes(RounderDecimal.formatDecimals(totalTaxes));
         cartResult.setTotalAmount(RounderDecimal.formatDecimals(cartResult.getTotalAmount() + totalTaxes));
-
+        cartResult.setCurrency( ConstantsString.EUR_CURRENCY );
+        
         return cartResult;
     }
 

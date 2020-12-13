@@ -2,10 +2,14 @@ package shopping.cart.taxes_calculator;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.undo.CannotRedoException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shopping.cart.ProductsUtils.CouponManager;
+import shopping.cart.ProductsUtils.CurrencyManager;
 import shopping.cart.ProductsUtils.ProductCategoryDetector;
 import shopping.cart.ProductsUtils.RounderDecimal;
 import shopping.cart.model.CartResult;
@@ -24,7 +28,10 @@ public class TaxesCalculator {
     RounderDecimal rounderDecimal;
 
     @Autowired
-    CouponManager couponManager; 
+    CouponManager couponManager;
+    
+    @Autowired
+    CurrencyManager currencyManager; 
 
     public CartResult computeTaxes(ShoppingCart shoppingCart, CartResult cartResult) {
 
@@ -40,14 +47,14 @@ public class TaxesCalculator {
         for (Product p : products) {
 
             productResult = createProductReturn(p, shoppingCart.getCodeCoupon());
-
             productsResult.add(new Product(productResult.getName(), productResult.getQuantity(), productResult.getPrice() * productResult.getQuantity()));
-            cartResult.setTotalAmount( cartResult.getTotalAmount() + (productResult.getPrice() * productResult.getQuantity()));
+            cartResult.setTotalAmount( cartResult.getTotalAmount() + ( rounderDecimal.formatDecimals(productResult.getPrice() * productResult.getQuantity())));
             totalTaxes = totalTaxes + this.calculateTax(productResult);
         }
 
-        cartResult.setIdShoppingCart("Shopping Cart nr. 4");
+        cartResult.setIdShoppingCart(shoppingCart.getIdShoppingCart());
         cartResult.setProducts(productsResult);
+        cartResult.setCurrency(currencyManager.getDefaultCurrency()); 
         cartResult.setTotalTaxes(rounderDecimal.formatDecimals(totalTaxes));
         cartResult.setTotalAmount(rounderDecimal.formatDecimals(cartResult.getTotalAmount() + totalTaxes));
 
@@ -68,10 +75,6 @@ public class TaxesCalculator {
         Product productResult = new Product();
         double priceUpdated = inputProduct.getPrice(); 
 
-        productResult.setName(inputProduct.getName());
-        productResult.setQuantity(inputProduct.getQuantity());
-
-
         Coupon coupon = couponManager.getcoupon(codeCoupon, inputProduct.getName()); 
         
         if(coupon != null) {
@@ -79,9 +82,10 @@ public class TaxesCalculator {
             priceUpdated = rounderDecimal.formatDecimals(inputProduct.getPrice() * ( 1 - discountRate ) );
         }
 
-        productResult.setPrice(priceUpdated);
+        productResult.setPrice(rounderDecimal.formatDecimals(priceUpdated));
+        productResult.setName(inputProduct.getName());
+        productResult.setQuantity(inputProduct.getQuantity());
 
         return productResult;
     }
-    
 }

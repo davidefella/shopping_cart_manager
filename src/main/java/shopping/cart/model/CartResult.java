@@ -3,6 +3,7 @@ package shopping.cart.model;
 import java.util.List;
 
 public class CartResult {
+    String currency; 
     String idShoppingCart;
     List<Product> products;
     double totalTaxes;
@@ -38,5 +39,13 @@ public class CartResult {
 
     public void setTotalAmount(double totalAmount) {
         this.totalAmount = totalAmount;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

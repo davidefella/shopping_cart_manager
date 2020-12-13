@@ -21,7 +21,7 @@ public class ProductCategoryDetector {
     }
 
     private boolean isFood(String nameProduct) {
-        if (nameProduct.contains("beer") || nameProduct.contains("cake") || nameProduct.contains("coke"))
+        if (nameProduct.contains("beer") || nameProduct.contains("cake") || nameProduct.contains("coke") || nameProduct.contains("wine"))
             return true;
         else
             return false;

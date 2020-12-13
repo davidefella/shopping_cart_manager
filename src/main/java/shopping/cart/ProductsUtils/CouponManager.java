@@ -9,7 +9,7 @@ import shopping.cart.model.coupon_category.CouponGift5;
 public class CouponManager {
 
     @Autowired
-    ProductCategoryDetector productCategoryDetector;
+    ProductCategoryFactory productCategoryDetector;
 
     public Coupon getcoupon(String codeCoupon, String nameProduct) {
 

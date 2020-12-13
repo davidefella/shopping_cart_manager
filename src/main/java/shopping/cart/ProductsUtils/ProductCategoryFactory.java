@@ -7,7 +7,7 @@ import shopping.cart.model.product_category.Category;
 import shopping.cart.model.product_category.FoodBeverage;
 
 @Service
-public class ProductCategoryDetector {
+public class ProductCategoryFactory {
 
     public Category detectCategoryFrom(String nameProduct) {
 

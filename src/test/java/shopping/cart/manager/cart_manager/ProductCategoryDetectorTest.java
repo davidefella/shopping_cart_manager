@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import shopping.cart.ProductsUtils.ProductCategoryDetector;
+import shopping.cart.ProductsUtils.ProductCategoryFactory;
 import shopping.cart.model.product_category.Basic;
 import shopping.cart.model.product_category.Book;
 import shopping.cart.model.product_category.Category;
@@ -16,7 +16,7 @@ import shopping.cart.model.product_category.FoodBeverage;
 public class ProductCategoryDetectorTest {
     
     @Autowired
-    private ProductCategoryDetector productCategoryDetector;
+    private ProductCategoryFactory productCategoryDetector;
     
     @Test
     public void CategoryDetector_BookName_ReturnBookObject() throws Exception {

@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shopping.cart.ProductsUtils.CouponManager;
-import shopping.cart.ProductsUtils.ProductCategoryDetector;
+import shopping.cart.ProductsUtils.ProductCategoryFactory;
 import shopping.cart.ProductsUtils.RounderDecimal;
 import shopping.cart.model.CartResult;
 import shopping.cart.model.Product;
@@ -18,7 +18,7 @@ import shopping.cart.model.product_category.Category;
 public class TaxesCalculator {
 
     @Autowired
-    ProductCategoryDetector productCategoryDetector;
+    ProductCategoryFactory productCategoryDetector;
 
     @Autowired
     CouponManager couponManager; 

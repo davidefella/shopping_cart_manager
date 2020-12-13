@@ -11,7 +11,7 @@
 - [Output](#Output)
 - [Taxes calculator](#Tax-calculator)
 - [Testing](#Testing)
-- [Feature in backlog](#Feature-In-Backlog)
+- [Features in backlog](#Feature-In-Backlog)
 - [External Resources](#External-resources)
 - [License](#License)
 

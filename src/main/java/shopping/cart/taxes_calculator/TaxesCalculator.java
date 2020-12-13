@@ -72,7 +72,7 @@ public class TaxesCalculator {
         Coupon coupon = couponManager.getcoupon(codeCoupon, inputProduct.getName()); 
         
         if(coupon != null) {
-            priceUpdated = getCouponPercentage(coupon);
+            priceUpdated = inputProduct.getPrice() * getCouponPercentage(coupon);
         }
 
         productResult.setPrice(priceUpdated);

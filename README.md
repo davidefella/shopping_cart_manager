@@ -70,8 +70,8 @@ Please note: I am using a free cost service so it takes a few seconds for the fi
 
 - Web welcome page
 - Input/Output via REST API
-- Subdivision of product categories
-- Calculation of taxes per product/category
+- Subdivision of products categories
+- Taxes calculation per product/category
 - Discount coupon management GIFT5 for book category
 - Calculation of total taxes for each shopping cart
 - Total calculation to pay for each shopping cart
@@ -84,11 +84,11 @@ For the submission of a Shopping cart I decided to implement a REST interface fo
 
 Available categories and products:
 - Food and Beverage: beer(s), coke(s), wine
-- Book: book
+- Book: book(s)
 - Basic: every other string that is not in previous categories
   
 
-<ins>#ASSUMPTION:</ins> In the requirements sent by the client it is not clear whether the sample input (and output) writed in text is exactly the desired input or an abstraction of it.  
+<ins>#ASSUMPTION:</ins> In the requirements sent by the client it is not clear whether the sample input (and output) specifed in text is exactly the desired input or an abstraction of it.  
 
 Since it is easier to separate the backend from the frontend (with React or Angular) with REST calls, I decided for this technology but It would be simple to convert the IOdriver.java class to accept a text file that is a copy of the one written in the requirments  
 
@@ -204,14 +204,14 @@ The output will have a format like:
 ```
 
 ## Taxes calculator
-For the tax calculation module, I used polymorphism by creating a class for each category so that I can easily manage the percentage of the tax
+For the tax calculation module, I used polymorphism by creating a class for each category so that I can easily manage the tax percentage:
 
 - Category.java (Interface)
 - Basic.java
 - Book.java
 - FoodBeverage.java
 
-Also for the discount coupons calculation I have used polymorphism, currently the system accepte only one, the "GIFT5" discount for books. 
+Also for the discount coupons calculation I  used polymorphism, currently the system accepte only one, the "GIFT5" discount for books. 
 
 - Coupon.java (Interface)
 - CouponGift5.java

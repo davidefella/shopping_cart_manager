@@ -34,7 +34,6 @@ gradle-app.setting
 log/
 .project
 .settings
-application.properties
 bin
 .classpath
 .vscode
@@ -43,3 +42,4 @@ bin
 .mvn
 mvnw
 mvnw.cmd
+target

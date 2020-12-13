@@ -16,7 +16,7 @@ public class ShoppingCartManager {
     public CartResult buyGoods(ShoppingCart shoppingCart ){
         CartResult cartResult = new CartResult(); 
         
-        cartResult = taxesCalculator.computeTaxes(shoppingCart,cartResult );
+        cartResult = taxesCalculator.computeShoppingCart(shoppingCart,cartResult );
 
         return cartResult;
     }

@@ -21,14 +21,14 @@ public class ProductCategoryDetector {
     }
 
     private boolean isFood(String nameProduct) {
-        if (nameProduct.contains("beer") || nameProduct.contains("cake") || nameProduct.contains("coke") || nameProduct.contains("wine"))
+        if (nameProduct.contains(ConstantsString.BEER) || nameProduct.contains( ConstantsString.CAKE ) || nameProduct.contains( ConstantsString.COKE )  || nameProduct.contains( ConstantsString.WINE))
             return true;
         else
             return false;
     }
 
     private boolean isBook(String nameProduct) {
-        if (nameProduct.contains("book"))
+        if (nameProduct.contains(ConstantsString.BOOK))
             return true;
         else
             return false;

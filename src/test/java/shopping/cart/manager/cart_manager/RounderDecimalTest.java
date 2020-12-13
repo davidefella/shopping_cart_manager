@@ -3,7 +3,6 @@ package shopping.cart.manager.cart_manager;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import shopping.cart.ProductsUtils.RounderDecimal;
@@ -89,7 +88,6 @@ public class RounderDecimalTest {
         //assert
         assertEquals("0.01",stringNumberRounded);
     }    
-
 
     @Test
     public void RounderDecimal_DecimalNumber_RoundedDownZeroDown() throws Exception {

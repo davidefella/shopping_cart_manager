@@ -2,7 +2,6 @@ package shopping.cart.model;
 
 import java.util.List;
 
-
 public class ShoppingCart {
     
     String idShoppingCart;

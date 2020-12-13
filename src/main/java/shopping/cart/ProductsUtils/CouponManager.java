@@ -2,13 +2,11 @@ package shopping.cart.ProductsUtils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import shopping.cart.model.coupon_category.Coupon;
 import shopping.cart.model.coupon_category.CouponGift5;
 
 @Service
 public class CouponManager {
-    final String COUPON_GIFT_5 = "GIFT5";
 
     @Autowired
     ProductCategoryDetector productCategoryDetector;
@@ -18,7 +16,7 @@ public class CouponManager {
         if (codeCoupon == null)
             return null; 
 
-        if (codeCoupon.equals(COUPON_GIFT_5) && isDiscountForThisGood(nameProduct))
+        if (codeCoupon.equals(ConstantsString.GIFT5) && isDiscountForThisGood(nameProduct))
             return new CouponGift5();
 
         return null;
